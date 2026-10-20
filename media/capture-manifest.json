@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "syntheticOnly": true,
+  "demoDomain": "retail-sales:v1",
+  "source": "user-supplied",
+  "suppliedOn": "2026-10-20",
+  "capturedFrom": "Owned isolated Contoso preview and an independently executed offline Contoso notebook in VS Code.",
+  "liveCopilotSession": false,
+  "imageAlterations": "Original user-supplied PNG bytes copied unchanged. The preview welcome banner was hidden before capture; shipped onboarding was not modified.",
+  "selection": "Nine unique images. Only the latest selected VS Code notebook image is included; earlier VS Code images and the duplicate chart are excluded.",
+  "releaseRelationship": "The isolated preview uses the October 14 pilot plus a later two-file Python exporter overlay. These images were not recaptured from the immutable pilot archive and do not certify a new release.",
+  "executionScope": "The notebook shows executed offline synthetic cells. Output and sharing previews do not demonstrate real-model connectivity, Streamlit execution, Power Query execution or live Copilot integration.",
+  "captures": [
+    {
+      "file": "query-builder.png",
+      "description": "Contoso query builder, editor and captured monthly results.",
+      "bytes": 168024,
+      "sha256": "b567b0d132d93c47c495480ea13cbeb9a7966e64481b0211df92acb3dfb943a8",
+      "width": 1621,
+      "height": 995
+    },
+    {
+      "file": "monthly-chart.png",
+      "description": "Monthly revenue chart from synthetic captured results.",
+      "bytes": 192518,
+      "sha256": "5c941d9b6d495ee2fbba4947abce2941edb45be7aa2aee83f00f63198c538949",
+      "width": 1622,
+      "height": 994
+    },
+    {
+      "file": "explore-pivot.png",
+      "description": "Explore worksheet with monthly columns and PivotTable Fields.",
+      "bytes": 93091,
+      "sha256": "a76061015bdcd30a3650d8808dc6e1ea3d99c0ff4529558f9dc26bee449d2e69",
+      "width": 1619,
+      "height": 997
+    },
+    {
+      "file": "starter-library.png",
+      "description": "Documented retail starter queries in Query Library.",
+      "bytes": 124649,
+      "sha256": "b05b64627320dd3bfc73acdd134cc7d74061bd7c8aeab6b39ab1a74547bda229",
+      "width": 1062,
+      "height": 898
+    },
+    {
+      "file": "saved-visual.png",
+      "description": "Saved synthetic monthly units-sold visual in Artifacts.",
+      "bytes": 166951,
+      "sha256": "a4256877cbcdbc6024f3193efd8146649a47577f46e8ddef97c4488c6905e5cf",
+      "width": 1622,
+      "height": 947
+    },
+    {
+      "file": "retail-dashboard.png",
+      "description": "Saved synthetic retail dashboard with indicators and product charts.",
+      "bytes": 157032,
+      "sha256": "4b8142d4d0ef6e4f1fc7b4fcd104ce036a128b69fe7a27b579bf3a3e0b982cbf",
+      "width": 1622,
+      "height": 1000
+    },
+    {
+      "file": "use-queries.png",
+      "description": "Use queries destinations; preview UI is not evidence of execution.",
+      "bytes": 50087,
+      "sha256": "330aafe7df08d871fbe98e288b7f5f11ada7c1d47b9fd057025c1fff5d39f497",
+      "width": 736,
+      "height": 884
+    },
+    {
+      "file": "python-notebook-vscode.png",
+      "description": "Only the latest user-selected VS Code image: executed offline Contoso notebook cells.",
+      "bytes": 380771,
+      "sha256": "6f4aa906f04b6a85e019e5278ebe7ec097b212957d4a00dcdbee9af5241aa22d",
+      "width": 1691,
+      "height": 1083
+    },
+    {
+      "file": "share-model-kit.png",
+      "description": "Reviewed model starter-kit export selections; no upload shown.",
+      "bytes": 76563,
+      "sha256": "985c279ae1730799717956e7351e2306b88fe0efb2507627a6e2ce64ca2023e6",
+      "width": 737,
+      "height": 867
+    }
+  ]
+}

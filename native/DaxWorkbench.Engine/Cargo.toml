@@ -1,0 +1,19 @@
+[package]
+name = "dax-workbench-engine"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "dax-workbench-engine"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order", "raw_value", "float_roundtrip"] }
+indexmap = { version = "2", features = ["serde"] }
+rusqlite = "0.38"
+zeroize = "1"
+sha2 = "0.10"
+ryu-js = "1"
+regex = "1"
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_Security", "Win32_Security_Cryptography", "Win32_Storage_FileSystem", "Win32_System_Memory", "Win32_System_JobObjects", "Win32_System_Threading"] }

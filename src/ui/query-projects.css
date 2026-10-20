@@ -1,0 +1,48 @@
+.use-query, .query-project { padding: 18px; min-width: 0; }
+.use-query > p, .query-project p { max-width: 74ch; line-height: 1.55; }
+.use-query h3 { margin: 22px 0 10px; font-size: 14px; }
+.project-source { display: grid; gap: 5px; padding: 12px 0; border-block: 1px solid var(--wb-border); overflow-wrap: anywhere; }
+.project-source span { color: var(--wb-muted); }
+.use-query-choice { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 8px; border: 0; border-bottom: 1px solid var(--wb-border-muted); background: transparent; color: var(--wb-fg); text-align: left; cursor: pointer; }
+.use-query-choice:hover, .use-query-choice:focus-visible { background: var(--wb-accent-bg); }
+.use-query-choice > span { display: grid; flex: 1; gap: 5px; }
+.use-query-choice small { color: var(--wb-muted); line-height: 1.5; }
+.project-fields { border: 0; padding: 0; margin-top: 14px; display: grid; gap: 12px; min-width: 0; }
+.project-fields > .button { justify-self: start; }
+.project-checkbox { display: flex; gap: 9px; align-items: start; line-height: 1.5; }
+.project-checkbox small { display: block; color: var(--wb-muted); }
+.project-query-selection { border: 1px solid var(--wb-border); padding: 12px; min-width: 0; display: grid; gap: 10px; }
+.project-query-selection legend { font-weight: 600; }
+.project-query-list { max-height: 260px; overflow: auto; display: grid; gap: 10px; }
+.project-query-list h4 { margin: 12px 0 0; }
+.project-query-list h4:first-child { margin-top: 0; }
+.project-query-selection .project-checkbox > span { min-width: 0; overflow-wrap: anywhere; }
+.project-preview { margin-top: 24px; border-top: 1px solid var(--wb-border); padding-top: 4px; min-width: 0; }
+.project-preview > .field-label { margin-block: 14px; }
+.project-code { background: var(--wb-inset); color: var(--wb-fg); border: 1px solid var(--wb-border); border-radius: 4px; padding: 12px; max-height: 340px; overflow: auto; white-space: pre; font: 12px/1.6 var(--mono); }
+.project-source-table { display: block; max-width: 100%; overflow: auto; border-collapse: collapse; margin-block: 12px; }
+.project-source-table th, .project-source-table td { padding: 9px 12px; border-bottom: 1px solid var(--wb-border-muted); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.project-source-table th { color: var(--wb-muted); font-weight: 600; }
+.project-source-table small { display: block; color: var(--wb-muted); margin-top: 4px; }
+.query-project { max-width: 1000px; width: 100%; margin-inline: auto; }
+.query-project h3 { font-size: 20px; line-height: 1.3; margin: 4px 0 12px; overflow-wrap: anywhere; }
+.query-project h4 { margin: 24px 0 10px; font-size: 14px; }
+.project-status { padding-block: 10px; border-bottom: 1px solid var(--wb-border); }
+.project-properties { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 10px 16px; margin-block: 20px; line-height: 1.5; }
+.project-properties dt { color: var(--wb-muted); }
+.project-properties dd { margin: 0; overflow-wrap: anywhere; }
+.project-controls { display: flex; align-items: end; gap: 8px; flex-wrap: wrap; }
+.project-controls .field-label { flex-basis: 100%; max-width: 480px; }
+.project-controls a { text-decoration: none; }
+.project-files { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 10px; }
+.project-files .text-button { text-align: left; overflow-wrap: anywhere; }
+.project-independent, .project-activity { margin-top: 22px; padding-block: 12px; border-top: 1px solid var(--wb-border); }
+.project-independent summary, .project-activity summary { cursor: pointer; font-weight: 600; }
+.inspector.use-query-inspector { position: absolute; inset: 0 0 0 auto; width: min(680px, 100%); max-width: 100%; z-index: 16; box-shadow: -8px 0 24px -12px var(--wb-overlay); }
+.use-query-inspector > .inspector-scroll { padding: 0; }
+@media (max-width: 760px) {
+  .use-query-inspector { width: 100%; }
+  .use-query, .query-project { padding: 14px; }
+  .project-properties { grid-template-columns: 1fr; gap: 4px; }
+  .project-properties dd { margin-bottom: 10px; }
+}

@@ -1,0 +1,48 @@
+.library-markdown .research-number {
+  font-variant-numeric: tabular-nums;
+  text-decoration: underline dotted var(--wb-muted);
+  text-underline-offset: .2em;
+  cursor: help;
+  overflow-wrap: anywhere;
+}
+
+.library-markdown .research-number:focus-visible {
+  outline: 2px solid var(--wb-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.library-markdown :is(th, td).research-numeric-cell {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.library-markdown .research-embed-paragraph {
+  margin: 0 0 1em;
+  white-space: pre-wrap;
+}
+
+.library-markdown td .research-number { text-decoration: none; }
+.library-markdown td .research-number:is(:hover, :focus-visible) { text-decoration: underline dotted var(--wb-muted); }
+.library-markdown .research-movement-table caption { text-align: left; font-weight: 600; padding: 10px; }
+.library-markdown .research-movement-table :is(td, th):nth-child(n+3) { text-align: right; white-space: nowrap; }
+.library-markdown .research-movement-table td:first-child { white-space: nowrap; }
+.library-markdown .research-movement-table td:nth-child(2) { min-width: 20ch; max-width: 40ch; overflow-wrap: anywhere; }
+.library-markdown .research-movement-table .research-table-note { font-size: 12px; line-height: 1.6; white-space: normal; padding: 10px; margin: 0; color: var(--wb-muted); }
+.library-markdown p.research-source-lines { white-space: pre-wrap; }
+
+.library-markdown .markdown-table-scroll:is(.documentation-filters-table, .documentation-scope-table) { max-width: 76ch; margin: 24px 0; border: 0; border-radius: 0; }
+.library-markdown :is(.documentation-filters-table, .documentation-scope-table) table { table-layout: fixed; font-size: 14px; line-height: 1.65; }
+.library-markdown :is(.documentation-filters-table, .documentation-scope-table) caption { text-align: left; font-size: 18px; font-weight: 600; padding: 0 0 12px; }
+.library-markdown :is(.documentation-filters-table, .documentation-scope-table) caption span { display: block; font-size: 12px; font-weight: 400; color: var(--wb-muted); margin-top: 2px; }
+.library-markdown :is(.documentation-filters-table, .documentation-scope-table) :is(th, td) { min-width: 0; overflow-wrap: anywhere; padding: 10px 12px; }
+.library-markdown :is(.documentation-filters-table, .documentation-scope-table) tbody th { background: transparent; font-weight: 600; }
+.library-markdown :is(.documentation-filters-table, .documentation-scope-table) :is(th, td):first-child { width: 30%; }
+.library-markdown .documentation-filters-table :is(th, td):nth-child(2) { width: 16%; }
+@media (max-width: 600px) {
+  .library-markdown :is(.documentation-filters-table, .documentation-scope-table) :is(th, td) { padding: 8px; }
+  .library-markdown .documentation-filters-table :is(th, td):nth-child(2) { width: 22%; }
+}
+@media (max-width: 360px) {
+  .library-markdown .documentation-filters-table :is(th, td):nth-child(2) { width: 30%; }
+}

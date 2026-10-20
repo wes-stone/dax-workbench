@@ -1,0 +1,42 @@
+{
+  "name": "dax-copilot-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A GitHub Copilot extension for building DAX queries, exploring results and reusing analysis.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "build:native": "powershell -NoProfile -File scripts\\build-native.ps1",
+    "build:rust": "powershell -NoProfile -File scripts\\build-rust.ps1",
+    "build:core": "powershell -NoProfile -File scripts\\build-rust.ps1 -CoreOnly",
+    "install:user": "powershell -NoProfile -File scripts\\install.ps1",
+    "test:install": "node scripts\\test-source-install.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-virtual": "^3.13.12",
+    "echarts": "^6.0.0",
+    "exceljs": "^4.4.0",
+    "monaco-editor": "^0.55.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "fflate": "^0.8.2",
+    "playwright": "^1.55.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.0"
+  }
+}

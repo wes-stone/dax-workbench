@@ -1,0 +1,50 @@
+import type { CSSProperties } from "react";
+
+const paths = {
+  database: <><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></>,
+  play: <path d="m8 5 11 7-11 7z"/>,
+  stop: <rect x="6" y="6" width="12" height="12" rx="1"/>,
+  plus: <path d="M12 5v14M5 12h14"/>,
+  close: <path d="m6 6 12 12M18 6 6 18"/>,
+  search: <><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></>,
+  chevron: <path d="m9 5 7 7-7 7"/>,
+  table: <><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 9v11"/></>,
+  measure: <path d="M18 4H6l7 8-7 8h12"/>,
+  column: <><rect x="7" y="3" width="10" height="18" rx="1"/><path d="M7 8h10M7 13h10M7 18h10"/></>,
+  link: <><path d="m10 8 3-3a4 4 0 0 1 6 6l-3 3M14 16l-3 3a4 4 0 0 1-6-6l3-3M8 16l8-8"/></>,
+  code: <><path d="m7 7-5 5 5 5M17 7l5 5-5 5M14 4l-4 16"/></>,
+  chart: <><path d="M4 3v17h17M8 16v-5M13 16V7M18 16v-8"/></>,
+  history: <><path d="M3 10a9 9 0 1 1 1 8M3 4v6h6M12 7v5l4 2"/></>,
+  lens: <><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/></>,
+  settings: <><path d="m9 3-1 3-3 1v3l-2 2 2 2v3l3 1 1 3h6l1-3 3-1v-3l2-2-2-2V7l-3-1-1-3z"/><circle cx="12" cy="12" r="3"/></>,
+  download: <><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></>,
+  refresh: <><path d="M20 10a8 8 0 0 0-14-5L3 8m0-5v5h5M4 14a8 8 0 0 0 14 5l3-3m0 5v-5h-5"/></>,
+  check: <path d="m4 12 5 5L20 6"/>,
+  warning: <><path d="m12 3 10 18H2zM12 9v5M12 17v1"/></>,
+  pin: <><path d="m8 3 8 0-1 7 4 4H5l4-4zM12 14v8"/></>,
+  book: <><path d="M4 3h14a2 2 0 0 1 2 2v16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2M3 17h17M7 3v14"/></>,
+  share: <><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m9 10 6-4M9 14l6 4"/></>,
+  panel: <><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M9 4v16"/></>,
+  compare: <><path d="M12 3v18M3 7h7M3 17h7M14 7h7M14 17h7M6 4 3 7l3 3m12 4 3 3-3 3"/></>,
+  info: <><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></>,
+  filter: <path d="M3 4h18l-7 8v7l-4 2v-9z"/>,
+  up: <path d="m5 14 7-7 7 7"/>,
+  down: <path d="m5 10 7 7 7-7"/>,
+  grip: <><path d="M9 5v1M9 11v1M9 17v1M15 5v1M15 11v1M15 17v1"/></>,
+  folder: <path d="M3 6h7l2 3h9v12H3z"/>,
+  file: <><path d="M5 3h9l5 5v13H5zM14 3v6h5M8 13h8M8 17h6"/></>,
+  image: <><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8" cy="8" r="1.5"/><path d="m3 18 6-6 4 4 3-3 5 5"/></>,
+  presentation: <><path d="M3 4h18v13H3zM12 17v5M7 22l5-5 5 5M7 8h10M7 12h6"/></>,
+  upload: <><path d="M12 16V3m-5 5 5-5 5 5M4 16v5h16v-5"/></>,
+  archive: <><path d="M4 8h16v13H4zM3 3h18v5H3zM9 12h6"/></>,
+  edit: <><path d="m15 4 5 5-11 11-6 1 1-6zM13 6l5 5"/></>,
+  eye: <><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12"/><circle cx="12" cy="12" r="3"/></>,
+  copy: <><rect x="8" y="8" width="12" height="13" rx="1"/><path d="M15 8V3H3v13h5"/></>,
+  expand: <path d="M9 3H3v6M15 3h6v6M21 15v6h-6M9 21H3v-6"/>,
+  restore: <path d="M3 9h6V3M15 3v6h6M21 15h-6v6M9 21v-6H3"/>,
+};
+
+export type IconName = keyof typeof paths;
+export function Icon({ name, size = 16, style }: { name: IconName; size?: number; style?: CSSProperties }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={style}>{paths[name]}</svg>;
+}

@@ -97,9 +97,15 @@ Copilot integration; the notebook shows an offline run. See
 
 ## Get the extension
 
-This repository contains the generic extension source and synthetic Contoso demo.
-Follow [Build and install](INSTALL.md) to install it into a compatible Copilot host.
-The source needs compilation; it is not a ready-to-run repository-folder install.
+**[Download the Windows x64 pilot](https://github.com/wes-stone/dax-workbench/releases/tag/v0.1.0-pilot.1), extract it,
+run `Install.ps1 -DownloadMicrosoftPrerequisites`, then reload extensions in Copilot.** Setup
+downloads two pinned Microsoft client packages directly from NuGet after you review
+their terms. Internet is needed for setup; no compilation is needed
+for that package. See [installation and requirements](INSTALL.md).
+
+The repository and release are private; downloads require repository access.
+You can also [build from source](INSTALL.md#build-from-source). Do not
+point Copilot's repository-folder installer at this unbuilt source tree.
 
 ## Try it
 
@@ -114,5 +120,5 @@ host with Copilot access. For Windows MSOLAP connections to real models, install
 ([Microsoft download](https://go.microsoft.com/fwlink/?linkid=829576)) and
 **.NET Framework 4.8**; model access is still required. MSOLAP is not bundled.
 
-**Source pilot; no prebuilt binary release.** Independent project, not an official
+**Windows pilot; unsigned.** Independent project, not an official
 GitHub or Microsoft product. [Publication checklist](PUBLICATION-CHECKLIST.md).

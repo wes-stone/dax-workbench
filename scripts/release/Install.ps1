@@ -1,4 +1,5 @@
-param([string]$CopilotHome)
+param([string]$CopilotHome, [switch]$AllowReviewPackage,
+    [switch]$DownloadMicrosoftPrerequisites, [string]$PrerequisiteDirectory)
 $ErrorActionPreference = 'Stop'
 function Get-PackageHash([string]$File) {
     $algorithm = [Security.Cryptography.SHA256]::Create()
@@ -13,28 +14,47 @@ $homeRoot = [IO.Path]::GetFullPath($CopilotHome)
 $payload = Join-Path $PSScriptRoot 'payload'
 $manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'release-manifest.json') -Raw | ConvertFrom-Json
 if ($manifest.version -ne 1 -or $manifest.profile -cne 'generic') { throw 'Unsupported release manifest.' }
+if ($manifest.reviewOnly -eq $true -and -not $AllowReviewPackage) { throw 'This is a local review package, not an approved release. Use AllowReviewPackage only for isolated local review.' }
 $destination = Join-Path $homeRoot 'extensions\dax-copilot-workbench'
 if (Test-Path -LiteralPath $destination) { throw 'DAX Workbench is already installed. This pilot installer will not overwrite or migrate existing software or saved data.' }
 $entries = @($manifest.files | Where-Object { $_.path.StartsWith('payload/', [StringComparison]::Ordinal) })
 if (-not $entries.Count) { throw 'The manifest contains no extension files.' }
 $paths = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
-foreach ($entry in $entries) {
-    $relative = $entry.path.Substring(8)
-    if ($relative -match '[\\:\x00-\x1f]' -or @($relative.Split('/') | Where-Object { $_ -eq '' -or $_ -eq '.' -or $_ -eq '..' }).Count -or -not $paths.Add($relative)) {
+foreach ($entry in $manifest.files) {
+    $relative = $entry.path
+    if (-not ($relative -is [string]) -or -not $relative -or $relative -ieq 'release-manifest.json' -or
+        $relative -match '[\\:<>\|?*\x00-\x1f\x7f]' -or
+        @($relative.Split('/') | Where-Object { $_ -eq '' -or $_ -eq '.' -or $_ -eq '..' -or $_ -match '[. ]$|^(?i:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)' }).Count -or -not $paths.Add($relative)) {
         throw 'Unsafe or duplicate package path.'
     }
-    $file = Join-Path $payload $relative.Replace('/', '\')
+    if ($entry.bytes -lt 0 -or $entry.bytes -ne [Math]::Truncate($entry.bytes) -or $entry.sha256 -cnotmatch '^[a-f0-9]{64}$') { throw 'Invalid package metadata.' }
+    $file = Join-Path $PSScriptRoot $relative.Replace('/', '\')
     $item = Get-Item -LiteralPath $file
     if ($item.PSIsContainer -or $item.Length -ne $entry.bytes -or (Get-PackageHash $file) -ine $entry.sha256) {
         throw "Package integrity check failed: $relative"
     }
     $ancestor = $item
-    while ($ancestor -and $ancestor.FullName.Length -ge $payload.Length) {
+    while ($ancestor -and $ancestor.FullName.Length -ge $PSScriptRoot.Length) {
         if ($ancestor.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'Linked package files or folders are not permitted.' }
         $ancestor = if ($ancestor.PSIsContainer) { $ancestor.Parent } else { $ancestor.Directory }
     }
 }
-if (@(Get-ChildItem -LiteralPath $payload -File -Recurse -Force).Count -ne $entries.Count) { throw 'Unexpected files were added to the package.' }
+if (@(Get-ChildItem -LiteralPath $PSScriptRoot -Recurse -Force | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint }).Count) { throw 'Linked package files or folders are not permitted.' }
+if (@(Get-ChildItem -LiteralPath $PSScriptRoot -File -Recurse -Force).Count -ne @($manifest.files).Count + 1) { throw 'Unexpected files were added to the package.' }
+$prerequisites = $null
+if ($manifest.prerequisites) {
+    if (-not $paths.Contains('Install-MicrosoftPrerequisites.ps1')) { throw 'Missing prerequisite installer.' }
+    . (Join-Path $PSScriptRoot 'Install-MicrosoftPrerequisites.ps1')
+    $prerequisites = Read-MicrosoftPrerequisites $manifest $paths
+    foreach ($pkg in $prerequisites.packages) {
+        Write-Output "$($pkg.name) $($pkg.version) -- review Microsoft terms: $($pkg.licenseUrl)"
+    }
+    if ($DownloadMicrosoftPrerequisites -and $PrerequisiteDirectory) { throw 'Choose direct download or an existing prerequisite directory, not both.' }
+    if (-not $DownloadMicrosoftPrerequisites -and -not $PrerequisiteDirectory) {
+        throw 'Review the Microsoft terms above, then rerun with -DownloadMicrosoftPrerequisites to authorize the downloads, or -PrerequisiteDirectory with the exact original .nupkg files. Nothing was installed or downloaded.'
+    }
+    if ($PrerequisiteDirectory) { $PrerequisiteDirectory = (Resolve-Path -LiteralPath $PrerequisiteDirectory).Path }
+} elseif ($DownloadMicrosoftPrerequisites -or $PrerequisiteDirectory) { throw 'This package does not declare external prerequisites.' }
 New-Item -ItemType Directory -Path $homeRoot -Force | Out-Null
 New-Item -ItemType Directory -Path (Join-Path $homeRoot 'extensions') -Force | Out-Null
 $stage = Join-Path $homeRoot ('.dax-install-stage-' + [Guid]::NewGuid().ToString('N'))
@@ -46,6 +66,9 @@ try {
         New-Item -ItemType Directory -Path (Split-Path $target -Parent) -Force | Out-Null
         Copy-Item -LiteralPath (Join-Path $payload $relative) -Destination $target
         if ((Get-PackageHash $target) -ine $entry.sha256) { throw 'A file changed during installation.' }
+    }
+    if ($prerequisites) {
+        Install-MicrosoftPrerequisites $prerequisites $stage $PrerequisiteDirectory
     }
     [IO.Directory]::Move($stage, $destination)
 } finally {

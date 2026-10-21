@@ -11,7 +11,8 @@ const privateSource = /^(?:src\/application\/(?:starter-queries|model-context)\/
 const externalModules = new Set(["yaml", "@github/copilot-sdk/extension", "exceljs/dist/exceljs.min.js"]);
 export function checkedPath(name) {
     if (typeof name !== "string" || !name || name.includes("\\") || name.includes(":") || /[\x00-\x1f\x7f]/.test(name)
-        || name.split("/").some(part => !part || part === "." || part === ".."))
+        || name.split("/").some(part => !part || part === "." || part === ".."
+            || /[<>|?*]|[. ]$/.test(part) || /^(?:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(part)))
         throw new Error("Release entries must be safe, relative, slash-separated paths.");
     return name;
 }
@@ -37,7 +38,7 @@ export async function noticeFiles(directory) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
         if (!entry.isFile()) continue;
         if (/^(?:licen[cs]e|notice|third[-_]?party|copying)/i.test(entry.name)
-            && (/\.(?:txt|md|markdown|html)$/i.test(entry.name) || !entry.name.includes("."))) {
+            && (/\.(?:txt|md|markdown|html|rtf|rst)$/i.test(entry.name) || !entry.name.includes("."))) {
             files.push(entry.name);
         } else if (/^readme(?:\.(?:md|markdown|txt))?$/i.test(entry.name)) {
             const text = await readFile(path.join(directory, entry.name), "utf8");
@@ -116,8 +117,12 @@ export function verifyEntries(entries, manifest, markers) {
     if (manifest.version !== 1 || manifest.profile !== "generic" || !Array.isArray(manifest.files))
         throw new Error("Invalid release manifest.");
     const expected = new Map(manifest.files.map(file => [checkedPath(file.path), file]));
-    if (expected.size !== manifest.files.length || expected.has("release-manifest.json"))
+    if (new Set([...expected.keys()].map(name => name.toLowerCase())).size !== manifest.files.length
+        || [...expected.keys()].some(name => name.toLowerCase() === "release-manifest.json"))
         throw new Error("Duplicate or self-referencing release manifest entries.");
+    for (const file of expected.values())
+        if (!Number.isSafeInteger(file.bytes) || file.bytes < 0 || !/^[a-f0-9]{64}$/.test(file.sha256))
+            throw new Error("Invalid release file metadata.");
     const actual = Object.keys(entries).filter(name => name !== "release-manifest.json");
     if (actual.length !== expected.size) throw new Error("Release file count differs from the manifest.");
     for (const name of actual) {

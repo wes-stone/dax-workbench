@@ -14,7 +14,10 @@
     "build:rust": "powershell -NoProfile -File scripts\\build-rust.ps1",
     "build:core": "powershell -NoProfile -File scripts\\build-rust.ps1 -CoreOnly",
     "install:user": "powershell -NoProfile -File scripts\\install.ps1",
-    "test:install": "node scripts\\test-source-install.mjs"
+    "test:install": "node scripts\\test-source-install.mjs",
+    "test:release": "node --test tests\\release-package.test.mjs",
+    "package:review": "node scripts\\package-release.mjs --review-only",
+    "package:release": "node scripts\\package-release.mjs"
   },
   "dependencies": {
     "@tanstack/react-virtual": "^3.13.12",
@@ -30,6 +33,7 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "esbuild": "0.28.2",
     "@types/node": "^24.0.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",

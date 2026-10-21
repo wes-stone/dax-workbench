@@ -1,0 +1,291 @@
+﻿[
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/Azure/azure-sdk-for-net/c94768fafa4dd93eef9f7c90c92522434fcedb32/LICENSE.txt",
+                            "revision":  "c94768fafa4dd93eef9f7c90c92522434fcedb32",
+                            "sha256":  "9b45236978bb5cd5de992021769e1eeaa79f0116d3b02cf8ba065a1ed603d5fa",
+                            "file":  "c94768fafa4d-LICENSE.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/Azure/azure-sdk-for-net/c94768fafa4dd93eef9f7c90c92522434fcedb32/NOTICE.txt",
+                            "revision":  "c94768fafa4dd93eef9f7c90c92522434fcedb32",
+                            "sha256":  "edca5c0353ab7281300dec18793a4eb06d26857e5bf9cb905e4b77543e467210",
+                            "file":  "c94768fafa4d-NOTICE.txt"
+                        }
+                    ],
+        "name":  "Azure.Core",
+        "version":  "1.53.0",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/Azure/azure-sdk-for-net/f7400e4471111bf7f2154834022786119acbdd77/LICENSE.txt",
+                            "revision":  "f7400e4471111bf7f2154834022786119acbdd77",
+                            "sha256":  "9b45236978bb5cd5de992021769e1eeaa79f0116d3b02cf8ba065a1ed603d5fa",
+                            "file":  "f7400e447111-LICENSE.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/Azure/azure-sdk-for-net/f7400e4471111bf7f2154834022786119acbdd77/NOTICE.txt",
+                            "revision":  "f7400e4471111bf7f2154834022786119acbdd77",
+                            "sha256":  "edca5c0353ab7281300dec18793a4eb06d26857e5bf9cb905e4b77543e467210",
+                            "file":  "f7400e447111-NOTICE.txt"
+                        }
+                    ],
+        "name":  "Azure.Identity",
+        "version":  "1.21.0",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/Azure/azure-sdk-for-net/6b41983be6c45a7439db0b25f0c0874d7c867ed9/LICENSE.txt",
+                            "revision":  "6b41983be6c45a7439db0b25f0c0874d7c867ed9",
+                            "sha256":  "9b45236978bb5cd5de992021769e1eeaa79f0116d3b02cf8ba065a1ed603d5fa",
+                            "file":  "6b41983be6c4-LICENSE.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/Azure/azure-sdk-for-net/6b41983be6c45a7439db0b25f0c0874d7c867ed9/NOTICE.txt",
+                            "revision":  "6b41983be6c45a7439db0b25f0c0874d7c867ed9",
+                            "sha256":  "edca5c0353ab7281300dec18793a4eb06d26857e5bf9cb905e4b77543e467210",
+                            "file":  "6b41983be6c4-NOTICE.txt"
+                        }
+                    ],
+        "name":  "System.ClientModel",
+        "version":  "1.10.0",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/dotnet/dotnet/95017c711e6afc1085133d440e42b4bd78155701/LICENSE.TXT",
+                            "revision":  "95017c711e6afc1085133d440e42b4bd78155701",
+                            "sha256":  "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+                            "file":  "95017c711e6a-LICENSE.TXT"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/dotnet/dotnet/95017c711e6afc1085133d440e42b4bd78155701/THIRD-PARTY-NOTICES.txt",
+                            "revision":  "95017c711e6afc1085133d440e42b4bd78155701",
+                            "sha256":  "4bef6a7e7b359869d751c9ff70274a80a0f626927afa5a0681583c1b1861267b",
+                            "file":  "95017c711e6a-THIRD-PARTY-NOTICES.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/dotnet/dotnet/95017c711e6afc1085133d440e42b4bd78155701/src/efcore/LICENSE.txt",
+                            "revision":  "95017c711e6afc1085133d440e42b4bd78155701",
+                            "sha256":  "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+                            "file":  "95017c711e6a-src-efcore-LICENSE.txt"
+                        }
+                    ],
+        "name":  "Microsoft.Data.Sqlite",
+        "version":  "10.0.12",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/dotnet/dotnet/95017c711e6afc1085133d440e42b4bd78155701/LICENSE.TXT",
+                            "revision":  "95017c711e6afc1085133d440e42b4bd78155701",
+                            "sha256":  "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+                            "file":  "95017c711e6a-LICENSE.TXT"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/dotnet/dotnet/95017c711e6afc1085133d440e42b4bd78155701/THIRD-PARTY-NOTICES.txt",
+                            "revision":  "95017c711e6afc1085133d440e42b4bd78155701",
+                            "sha256":  "4bef6a7e7b359869d751c9ff70274a80a0f626927afa5a0681583c1b1861267b",
+                            "file":  "95017c711e6a-THIRD-PARTY-NOTICES.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/dotnet/dotnet/95017c711e6afc1085133d440e42b4bd78155701/src/efcore/LICENSE.txt",
+                            "revision":  "95017c711e6afc1085133d440e42b4bd78155701",
+                            "sha256":  "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+                            "file":  "95017c711e6a-src-efcore-LICENSE.txt"
+                        }
+                    ],
+        "name":  "Microsoft.Data.Sqlite.Core",
+        "version":  "10.0.12",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-dotnet/64076eedf396c11d046c63be068a92f6fa10aaf2/LICENSE",
+                            "revision":  "64076eedf396c11d046c63be068a92f6fa10aaf2",
+                            "sha256":  "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+                            "file":  "64076eedf396-LICENSE"
+                        }
+                    ],
+        "name":  "Microsoft.Identity.Client",
+        "version":  "4.83.3",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-dotnet/64076eedf396c11d046c63be068a92f6fa10aaf2/LICENSE",
+                            "revision":  "64076eedf396c11d046c63be068a92f6fa10aaf2",
+                            "sha256":  "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+                            "file":  "64076eedf396-LICENSE"
+                        }
+                    ],
+        "name":  "Microsoft.Identity.Client.Broker",
+        "version":  "4.83.3",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-dotnet/d5d7de6b103f0d9dd7bca9bf13cbb9f3da37bc9f/LICENSE",
+                            "revision":  "d5d7de6b103f0d9dd7bca9bf13cbb9f3da37bc9f",
+                            "sha256":  "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+                            "file":  "d5d7de6b103f-LICENSE"
+                        }
+                    ],
+        "name":  "Microsoft.Identity.Client.Extensions.Msal",
+        "version":  "4.83.1",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/c8f7d87bcda35557a68f6cb9c55856a2ee733856/LICENSE.txt",
+                            "revision":  "c8f7d87bcda35557a68f6cb9c55856a2ee733856",
+                            "sha256":  "cba03f5387b05405e56b688376421acae396136af4b5116738dc6e5160f87ddd",
+                            "file":  "c8f7d87bcda3-LICENSE.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/c8f7d87bcda35557a68f6cb9c55856a2ee733856/NOTICE.html",
+                            "revision":  "c8f7d87bcda35557a68f6cb9c55856a2ee733856",
+                            "sha256":  "d9f0289a2c38b4eedf5f22a045b6b37212d0989afb5f416a5f9ace59958136f7",
+                            "file":  "c8f7d87bcda3-NOTICE.html"
+                        }
+                    ],
+        "name":  "Microsoft.IdentityModel.Abstractions",
+        "version":  "8.14.0",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/LICENSE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+                            "file":  "ca835d21508b-LICENSE.TXT"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/NOTICE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "485b276b3d2bfaa26df348e1e5c84df3648981e09b88531a6a53006f0705c24b",
+                            "file":  "ca835d21508b-NOTICE.TXT"
+                        }
+                    ],
+        "name":  "SQLitePCLRaw.bundle_e_sqlite3",
+        "version":  "2.1.12",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/LICENSE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+                            "file":  "ca835d21508b-LICENSE.TXT"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/NOTICE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "485b276b3d2bfaa26df348e1e5c84df3648981e09b88531a6a53006f0705c24b",
+                            "file":  "ca835d21508b-NOTICE.TXT"
+                        }
+                    ],
+        "name":  "SQLitePCLRaw.core",
+        "version":  "2.1.12",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/LICENSE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+                            "file":  "ca835d21508b-LICENSE.TXT"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/NOTICE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "485b276b3d2bfaa26df348e1e5c84df3648981e09b88531a6a53006f0705c24b",
+                            "file":  "ca835d21508b-NOTICE.TXT"
+                        }
+                    ],
+        "name":  "SQLitePCLRaw.lib.e_sqlite3",
+        "version":  "2.1.12",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/LICENSE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+                            "file":  "ca835d21508b-LICENSE.TXT"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/ericsink/SQLitePCL.raw/ca835d21508bff43121c65081035840ac5006c4c/NOTICE.TXT",
+                            "revision":  "ca835d21508bff43121c65081035840ac5006c4c",
+                            "sha256":  "485b276b3d2bfaa26df348e1e5c84df3648981e09b88531a6a53006f0705c24b",
+                            "file":  "ca835d21508b-NOTICE.TXT"
+                        }
+                    ],
+        "name":  "SQLitePCLRaw.provider.e_sqlite3",
+        "version":  "2.1.12",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/aaubry/YamlDotNet/ae480660f4fb26f3eb0b41c1d1fcf21c0e9d9e73/LICENSE.txt",
+                            "revision":  "ae480660f4fb26f3eb0b41c1d1fcf21c0e9d9e73",
+                            "sha256":  "daea8b7f1b2bab48ea12ad50b0ce91634669d99d7dd0cb64aed8dffeeef69ed3",
+                            "file":  "ae480660f4fb-LICENSE.txt"
+                        },
+                        {
+                            "url":  "https://raw.githubusercontent.com/aaubry/YamlDotNet/ae480660f4fb26f3eb0b41c1d1fcf21c0e9d9e73/LICENSE-libyaml",
+                            "revision":  "ae480660f4fb26f3eb0b41c1d1fcf21c0e9d9e73",
+                            "sha256":  "cb65f46df0d9125ba60862117200ec6631fef3a8169cd0b4513ffcad4ef5cb9b",
+                            "file":  "ae480660f4fb-LICENSE-libyaml"
+                        }
+                    ],
+        "name":  "YamlDotNet",
+        "version":  "16.3.0",
+        "ecosystem":  "nuget"
+    },
+    {
+        "sources":  [
+                        {
+                            "url":  "https://raw.githubusercontent.com/lddubeau/saxes/6ef6a275b20f19cb67808daf0d8f64e06aaf5b0e/LICENSE",
+                            "revision":  "6ef6a275b20f19cb67808daf0d8f64e06aaf5b0e",
+                            "sha256":  "0fac2374380621b22e6b50451057721a9c52935b02d16d106a9f04897f061d0e",
+                            "file":  "6ef6a275b20f-LICENSE"
+                        }
+                    ],
+        "name":  "saxes",
+        "version":  "5.0.1",
+        "ecosystem":  "npm"
+    },
+    {
+        "sources":  [
+                        {
+                            "archiveSha256":  "016c964fcf24decc670da9f37680070bfcadf84e7644815db5e5f189b5209ce2",
+                            "sha256":  "45f9c82eb6130a14774735547281e11d63ee94d8067ae831fd616b77aa109115",
+                            "member":  "Eula/EulaText_1033.rtf",
+                            "licenseUrl":  "https://go.microsoft.com/fwlink/?linkid=852895",
+                            "url":  "https://download.microsoft.com/download/E/C/8/EC87239D-30D1-4063-918D-CB0FE586643F/ADOMD_Eula.zip",
+                            "file":  "Microsoft.AnalysisServices.AdomdClient-19.117.0-EulaText_1033.rtf"
+                        }
+                    ],
+        "name":  "Microsoft.AnalysisServices.AdomdClient",
+        "version":  "19.117.0",
+        "ecosystem":  "nuget",
+        "review":  "ADOMD EULA section 2 requires an applicable redistributable list and protective end-user/distributor terms. No REDIST list was supplied in this package; distribution approval and terms are unresolved."
+    }
+]

@@ -9,6 +9,8 @@ native/DaxWorkbench.WindowsMsolap/obj/
 native/publish/
 engine/artifacts/
 .source-install-*/
+.release-build-*/
+release-candidates/
 .copilot/
 .env
 .env.*

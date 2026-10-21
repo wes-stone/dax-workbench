@@ -2,9 +2,10 @@ import { copyFile, mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { filesUnder, writeEntry, inventory, privacyMarkers } from "./release/release-files.mjs";
+import { bundleExcel } from "./release/bundle-runtime.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-export async function stageInstall(destination) {
+export async function stageInstall(destination, { assetsRoot = root, finalize = true } = {}) {
     const release = path.resolve(destination);
     await mkdir(release);
     const runtime = JSON.parse(await readFile(path.join(root, "runtime-files.json"), "utf8"));
@@ -15,10 +16,10 @@ export async function stageInstall(destination) {
         ["native/publish", /\.(?:dll|exe|json|config)$/],
         ["engine/artifacts", /\.wasm$/],
     ]) {
-        for (const name of await filesUnder(path.join(root, ...directory.split("/")))) {
+        for (const name of await filesUnder(path.join(assetsRoot, ...directory.split("/")))) {
             if (!allowed.test(name)) continue;
             await writeEntry(release, `payload/${directory}/${name}`,
-                await readFile(path.join(root, ...directory.split("/"), ...name.split("/"))));
+                await readFile(path.join(assetsRoot, ...directory.split("/"), ...name.split("/"))));
         }
     }
     for (const name of [
@@ -34,22 +35,26 @@ export async function stageInstall(destination) {
     const dependencies = [
         ...["package.json", "LICENSE", ...(await filesUnder(path.join(root, "node_modules", "yaml", "dist")))
             .filter(name => name.endsWith(".js")).map(name => `dist/${name}`)].map(name => `yaml/${name}`),
-        ...["package.json", "LICENSE", "dist/exceljs.min.js"].map(name => `exceljs/${name}`),
+        ...["package.json", "LICENSE"].map(name => `exceljs/${name}`),
     ];
     for (const name of dependencies)
         await writeEntry(release, `payload/node_modules/${name}`,
             await readFile(path.join(root, "node_modules", ...name.split("/"))));
+    await bundleExcel(root, release);
     const metadata = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
     await writeEntry(release, "payload/package.json", JSON.stringify({
         name: metadata.name, version: metadata.version, private: true, type: "module",
         engines: metadata.engines, dependencies: { yaml: yaml.version },
     }, null, 2) + "\n");
-    await copyFile(path.join(root, "scripts", "release", "Install.ps1"), path.join(release, "Install.ps1"));
-    const files = await inventory(release, privacyMarkers(root));
-    await writeEntry(release, "release-manifest.json", JSON.stringify({
-        version: 1, profile: "generic", files,
-        purpose: "Local installation from source; not a redistributable binary release.",
-    }, null, 2) + "\n");
+    for (const name of ["Install.ps1", "Install-MicrosoftPrerequisites.ps1"])
+        await copyFile(path.join(root, "scripts", "release", name), path.join(release, name));
+    if (finalize) {
+        const files = await inventory(release, privacyMarkers(root));
+        await writeEntry(release, "release-manifest.json", JSON.stringify({
+            version: 1, profile: "generic", files,
+            purpose: "Local installation from source; not a redistributable binary release.",
+        }, null, 2) + "\n");
+    }
     return release;
 }
 

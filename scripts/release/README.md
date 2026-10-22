@@ -3,6 +3,16 @@
 This package contains the built Copilot extension. Recipients do not need npm,
 Rust or the .NET SDK to install it.
 
+**[Getting started](https://github.com/wes-stone/dax-workbench/blob/main/GETTING-STARTED.md)**
+is a shareable guide with a prompt for GitHub Copilot.
+
+**Required for the standard real-model setup:** first install
+[Microsoft MSOLAP x64 / amd64](https://go.microsoft.com/fwlink/?linkid=829576)
+and have .NET Framework 4.8 or a compatible later version.
+The Workbench installer does **not** install MSOLAP; the ADOMD/NativeInterop
+downloads below are different components. The synthetic Contoso-only demo can
+be used without MSOLAP or .NET Framework.
+
 **Review packages are not approved releases.** If this archive is labeled
 `review`, do not distribute it. Its installer requires an explicit
 `-AllowReviewPackage` flag for isolated local review. See
@@ -12,7 +22,9 @@ Rust or the .NET SDK to install it.
 
 1. Download the Windows x64 ZIP and `SHA256SUMS.txt` from the repository's
    release page. Compare the ZIP's SHA-256 with the published checksum.
-2. Extract the ZIP to a new folder. Review the scripts, dependency notices and
+2. Extract the ZIP to a new folder. Keep separately downloaded checksums, reports
+   and guides outside it; extra files fail the package integrity check.
+   Review the scripts, dependency notices and
    Microsoft terms linked below. Running `.\Install.ps1` without options displays
    the required downloads and stops without installing.
 3. In PowerShell, from the extracted folder, run:

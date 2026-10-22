@@ -97,6 +97,14 @@ Copilot integration; the notebook shows an offline run. See
 
 ## Get the extension
 
+**Start here: [Getting started](GETTING-STARTED.md)** - a shareable installation
+guide with a prompt you can paste into GitHub Copilot.
+
+**Required for the standard real-model setup: install
+[Microsoft MSOLAP x64 / amd64](https://go.microsoft.com/fwlink/?linkid=829576)
+and .NET Framework 4.8 (or a compatible later version).**
+The extension installer does **not** install the MSOLAP provider.
+
 **[Download the Windows x64 pilot](https://github.com/wes-stone/dax-workbench/releases/tag/v0.1.0-pilot.1), extract it,
 run `Install.ps1 -DownloadMicrosoftPrerequisites`, then reload extensions in Copilot.** Setup
 downloads two pinned Microsoft client packages directly from NuGet after you review

@@ -1,5 +1,16 @@
 # Install DAX Workbench
 
+**New here? Use [Getting started](GETTING-STARTED.md)** for the step-by-step
+recipient guide and a prompt you can send directly to GitHub Copilot.
+
+**Required for the standard real-model setup:** download and install
+[Microsoft MSOLAP x64 / amd64](https://go.microsoft.com/fwlink/?linkid=829576)
+and have .NET Framework 4.8 or a compatible later version.
+Complete this before using Windows MSOLAP/OLE DB connections. The Workbench
+installer does **not** install this provider, and its ADOMD/NativeInterop
+downloads are not a substitute. Only trying the synthetic Contoso demo?
+You can skip the provider and .NET Framework until you need that connection mode.
+
 This repository shares the **extension that provides the canvas**, not a running
 canvas, saved workspace or connection. Each recipient installs a local copy.
 While the repository is private, only people granted repository access can clone it.
@@ -14,7 +25,9 @@ needs its compiled UI, Rust/WASM engine and Windows native companion.
 Download the Windows x64 ZIP and `SHA256SUMS.txt` from the
 [pilot release](https://github.com/wes-stone/dax-workbench/releases/tag/v0.1.0-pilot.1).
 The repository is private, so downloads require repository access. Verify the
-SHA-256, and extract to a new directory. Run `.\Install.ps1` first to see the
+SHA-256, and extract to a new directory. Keep separately downloaded checksums,
+reports and guides outside the extracted directory; extra files fail the
+package integrity check. Run `.\Install.ps1` first to see the
 Microsoft prerequisite terms and download instructions; it makes no changes.
 After reviewing the terms, run `.\Install.ps1 -DownloadMicrosoftPrerequisites`.
 Then reload extensions in a compatible Copilot host and ask **"Open DAX

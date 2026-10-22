@@ -3,6 +3,13 @@
 **Experimental Windows x64 pilot.** Use only the reviewed GitHub release asset;
 files labeled `review` remain local-review packages, not approved releases.
 
+**[Start with the installation guide](https://github.com/wes-stone/dax-workbench/blob/main/GETTING-STARTED.md).**
+For standard real-model use, install
+[Microsoft MSOLAP x64 / amd64](https://go.microsoft.com/fwlink/?linkid=829576)
+and .NET Framework 4.8 (or a compatible later version) first.
+The extension's prerequisite-download option does not install MSOLAP.
+Contoso-only exploration does not require the provider.
+
 - Built extension, frontend, native companion and Rust/WASM engine; no
   compilation is required on the recipient installation path.
 - Credential-free Contoso retail demo with four supported recipes, synchronized
